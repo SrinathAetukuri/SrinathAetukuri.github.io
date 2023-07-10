@@ -1,0 +1,43 @@
+/* Add your custom styles here */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+section {
+  padding: 50px;
+}
+
+section h1 {
+  font-size: 24px;
+}
+
+section h2 {
+  font-size: 18px;
+}
+
+section p {
+  font-size: 14px;
+}
