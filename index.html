@@ -5,21 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Srinath Aetukuri | Cybersecurity Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background: #0d1117;
-            color: #c9d1d9;
+        /* Define CSS Variables for Theme */
+        :root {
+            --background-color: #0e0e0e;
+            --text-color: #0f0;
+            --accent-color: #00ffff;
+            --hover-color: #00b3b3;
         }
 
-        h1, h2, h3 {
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Courier Prime', monospace;
+            background: var(--background-color);
+            color: var(--text-color);
+        }
+
+        h1, h2, h3, p {
+            margin: 0;
             text-align: center;
         }
 
         a {
-            color: #58a6ff;
+            color: var(--accent-color);
             text-decoration: none;
         }
 
@@ -27,203 +37,195 @@
             text-decoration: underline;
         }
 
+        .container {
+            padding: 20px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: var(--accent-color);
+            color: var(--background-color);
+            font-weight: bold;
+            border-radius: 5px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--hover-color);
+        }
+
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Cybersecurity+Background') no-repeat center center/cover;
-            color: #58a6ff;
-            text-shadow: 2px 2px 5px #000;
+            background: url('https://cdn.gamma.app/ytgplhq6o4xqtrp/33d93e864d144831824045d33dd775d8/original/Srinath_Aetukuri_Resume.pdf') no-repeat center center/cover;
+            text-shadow: 0 0 5px var(--text-color), 0 0 10px var(--text-color);
         }
 
         .hero h1 {
             font-size: 4rem;
-            animation: fadeIn 2s ease-in;
+            animation: glitch 1.5s infinite;
         }
 
-        .hero p {
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px #ff00ff; }
+            50% { text-shadow: -2px -2px #00ffff; }
+            100% { text-shadow: 2px -2px #ff00ff; }
+        }
+
+        .hero .tagline {
             font-size: 1.5rem;
-            margin: 10px 0;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #238636;
-            color: #fff;
-            font-size: 1rem;
-            text-transform: uppercase;
+        /* Sections */
+        section {
+            padding: 50px 20px;
+        }
+
+        .about, .projects, .contact {
             text-align: center;
-            border-radius: 5px;
-            margin-top: 20px;
-            cursor: pointer;
         }
 
-        .cta-button:hover {
-            background: #2ea043;
+        .about img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .timeline {
-            margin: 50px auto;
-            max-width: 900px;
-            position: relative;
-        }
-
-        .timeline:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 4px;
-            background: #58a6ff;
-        }
-
-        .timeline-event {
-            position: relative;
-            margin: 20px 0;
-            width: calc(50% - 30px);
+        .projects .project-card {
+            background: #1a1a1a;
+            border: 1px solid var(--text-color);
+            border-radius: 10px;
+            margin: 20px;
             padding: 20px;
-            border-radius: 8px;
-            background: #161b22;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        .timeline-event:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-event:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-event h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .timeline-event p {
-            font-size: 1rem;
-        }
-
-        .projects {
-            margin: 50px auto;
-            max-width: 1200px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .project-card {
-            flex: 1 1 300px;
-            margin: 10px;
-            padding: 20px;
-            background: #21262d;
-            border-radius: 8px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            text-align: left;
+            width: 250px;
             transition: transform 0.3s ease;
         }
 
-        .project-card:hover {
-            transform: scale(1.05);
-        }
-
-        .project-card h3 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
-        .project-card p {
-            font-size: 1rem;
-        }
-
-        .contact {
-            margin: 50px auto;
-            max-width: 600px;
-        }
-
-        .contact form {
-            display: flex;
-            flex-direction: column;
+        .projects .project-card:hover {
+            transform: scale(1.1);
         }
 
         .contact form input, .contact form textarea {
-            margin: 10px 0;
+            display: block;
+            width: 80%;
+            margin: 10px auto;
             padding: 10px;
+            border: 1px solid var(--text-color);
             border-radius: 5px;
-            border: 1px solid #30363d;
-            background: #161b22;
-            color: #c9d1d9;
+            background: #1a1a1a;
+            color: var(--text-color);
         }
 
         .contact form input[type="submit"] {
-            background: #238636;
-            color: #ffffff;
             cursor: pointer;
+            background: var(--accent-color);
+            color: var(--background-color);
         }
 
         .contact form input[type="submit"]:hover {
-            background: #2ea043;
+            background: var(--hover-color);
         }
     </style>
 </head>
 <body>
-    <header class="hero">
-        <h1>Srinath Aetukuri</h1>
-        <p>Cybersecurity Professional | Innovating Secure Systems</p>
-        <a href="#timeline" class="cta-button">Explore My Journey</a>
-    </header>
 
-    <section id="timeline" class="timeline">
-        <h2>My Career Timeline</h2>
-        <div class="timeline-event">
-            <h3>2024 - Master's Degree</h3>
-            <p>Graduated with a Master of Science in Cybersecurity Risk Management from Indiana University. Specialized in Threat Modeling, API Security, and Zero Trust Architecture.</p>
-        </div>
-        <div class="timeline-event">
-            <h3>2022 - Security Consultant</h3>
-            <p>At IBM, conducted web and API penetration tests, implemented secure architecture, and provided Proof of Concepts (PoCs) for vulnerability remediation.</p>
-        </div>
-        <div class="timeline-event">
-            <h3>2020 - Bachelor's Degree</h3>
-            <p>Earned a Bachelor of Technology in Computer Science and Engineering from NIIT University. Focused on Cybersecurity and Networking.</p>
-        </div>
-    </section>
+<!-- Hero Section -->
+<header class="hero">
+    <h1>Srinath Aetukuri</h1>
+    <p class="tagline">Cybersecurity Professional | Seeking Full-Time Opportunities</p>
+    <a href="#about" class="cta-button">Learn More</a>
+</header>
 
-    <section id="projects" class="projects">
-        <h2>Highlighted Projects</h2>
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="container">
+        <img src="https://via.placeholder.com/150" alt="Srinath Aetukuri">
+        <h2>About Me</h2>
+        <p>Welcome! I'm Srinath, a dedicated Penetration Tester with over 3 years of hands-on experience in Information Technology, specializing in cybersecurity. My journey is driven by a passion for securing digital landscapes and a commitment to making a significant impact in the cybersecurity domain.</p>
+        <p>Currently pursuing a Master's degree in Cybersecurity Risk Management at Indiana University with a GPA of 3.95/4.0, I focus on areas such as Web Application Security, Threat Modeling, Zero Trust, and Digital Forensics.</p>
+        <p>In my tenure at IBM, I conducted comprehensive web application and API penetration testing, threat modeling, and vulnerability assessment. Achievements include securing 2nd place in the IBM X-Force-Red CTF competition.</p>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects">
+    <div class="container">
+        <h2>Projects</h2>
         <div class="project-card">
-            <h3>Zero Trust Capstone</h3>
-            <p>Collaborated with ACT-IAC to develop a Zero Trust adoption strategy for organizations, aligning with the 2021 cybersecurity executive order.</p>
+            <h3>Zero Trust Architecture Capstone</h3>
+            <p>Developed a comprehensive strategy for Zero Trust adoption in collaboration with ACT-IAC, aligning with the 2021 cybersecurity executive order.</p>
         </div>
         <div class="project-card">
             <h3>Cybersecurity Clinic</h3>
-            <p>Partnered with the City of Bloomington to create risk assessment frameworks and secure critical IT systems.</p>
+            <p>Created a risk assessment framework for third-party tools, collaborating with the City of Bloomington ITS to secure critical IT systems.</p>
+        </div>
+        <div class="project-card">
+            <h3>Domain Expressiveness Optimization</h3>
+            <p>Optimized DNS infrastructure to enhance performance and functionality during undergraduate research.</p>
         </div>
         <div class="project-card">
             <h3>Content Security Policy Research</h3>
-            <p>Analyzed and enhanced CSP to mitigate web vulnerabilities like XSS, clickjacking, and transport layer attacks.</p>
+            <p>Enhanced CSP for mitigating web vulnerabilities like XSS and Clickjacking, backed by insights from HTTP Archive.</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="contact" class="contact">
+<!-- Skills Section -->
+<section id="skills" class="skills">
+    <div class="container">
+        <h2>Skills</h2>
+        <ul>
+            <li>Web and API Penetration Testing (BurpSuite, OWASP Top-10)</li>
+            <li>Threat Modeling and Vulnerability Management</li>
+            <li>Cloud Security and Security Frameworks</li>
+            <li>Python Scripting and Automation</li>
+            <li>Security Research and Program Management</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications" class="certifications">
+    <div class="container">
+        <h2>Certifications</h2>
+        <ul>
+            <li>CompTIA Security+</li>
+            <li>CEH v10</li>
+            <li>IBM Cloud Essentials</li>
+            <li>Google Cybersecurity</li>
+            <li>Microsoft Azure Fundamentals</li>
+            <li>Enterprise Design Thinking Practitioner</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
         <h2>Contact Me</h2>
         <form>
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <input type="text" name="name" placeholder="Your Name">
+            <input type="email" name="email" placeholder="Your Email">
+            <textarea name="message" rows="5" placeholder="Your Message"></textarea>
             <input type="submit" value="Send">
         </form>
         <p>Email: <a href="mailto:srinath9698@gmail.com">srinath9698@gmail.com</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/aetukurisrinath">aetukurisrinath</a></p>
         <p>GitHub: <a href="https://github.com/SrinathAetukuri">SrinathAetukuri</a></p>
-    </section>
+    </div>
+</section>
+
 </body>
 </html>
