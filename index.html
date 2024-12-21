@@ -1,83 +1,224 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Your Cybersecurity Portfolio</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srinath Aetukuri | Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        /* Define CSS Variables for Theme */
+        :root {
+            --background-color: #0e0e0e;
+            --text-color: #0f0;
+            --accent-color: #00ffff;
+            --hover-color: #00b3b3;
+        }
+
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Courier Prime', monospace;
+            background: var(--background-color);
+            color: var(--text-color);
+        }
+
+        h1, h2, h3, p {
+            margin: 0;
+            text-align: center;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: var(--accent-color);
+            color: var(--background-color);
+            font-weight: bold;
+            border-radius: 5px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--hover-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('https://via.placeholder.com/1920x1080?text=Cybersecurity+Background') no-repeat center center/cover;
+            text-shadow: 0 0 5px var(--text-color), 0 0 10px var(--text-color);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            animation: glitch 1.5s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px #ff00ff; }
+            50% { text-shadow: -2px -2px #00ffff; }
+            100% { text-shadow: 2px -2px #ff00ff; }
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 50px 20px;
+        }
+
+        .about, .projects, .contact {
+            text-align: center;
+        }
+
+        .about img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .projects .project-card {
+            background: #1a1a1a;
+            border: 1px solid var(--text-color);
+            border-radius: 10px;
+            margin: 20px;
+            padding: 20px;
+            display: inline-block;
+            text-align: left;
+            width: 250px;
+            transition: transform 0.3s ease;
+        }
+
+        .projects .project-card:hover {
+            transform: scale(1.1);
+        }
+
+        .contact form input, .contact form textarea {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid var(--text-color);
+            border-radius: 5px;
+            background: #1a1a1a;
+            color: var(--text-color);
+        }
+
+        .contact form input[type="submit"] {
+            cursor: pointer;
+            background: var(--accent-color);
+            color: var(--background-color);
+        }
+
+        .contact form input[type="submit"]:hover {
+            background: var(--hover-color);
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-  <section id="about">
+
+<!-- Hero Section -->
+<header class="hero">
+    <h1>Srinath Aetukuri</h1>
+    <p class="tagline">Cybersecurity Professional | Ethical Hacker | Problem Solver</p>
+    <a href="#about" class="cta-button">Learn More</a>
+</header>
+
+<!-- About Section -->
+<section id="about" class="about">
     <div class="container">
-      <h1>About Me</h1>
-      <p>Welcome to my cybersecurity portfolio website!</p>
-      <p>I am a passionate cybersecurity professional with expertise in penetration testing, vulnerability assessment, and secure code development.</p>
-      <p>Throughout my career, I have successfully helped organizations strengthen their security posture by identifying and mitigating potential vulnerabilities.</p>
+        <img src="https://via.placeholder.com/150" alt="Srinath Aetukuri">
+        <h2>About Me</h2>
+        <p>Cybersecurity expert with over 3 years of hands-on experience in securing IT systems and combating cyber threats. Passionate about ethical hacking, penetration testing, and building secure frameworks. Currently pursuing an MS in Cybersecurity Risk Management at Indiana University with a GPA of 3.95/4.0.</p>
     </div>
-  </section>
-  
-  <section id="experience">
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects">
     <div class="container">
-      <h1>Experience</h1>
-      <ul>
-        <li>
-          <h2>Company A</h2>
-          <p>Position: Senior Cybersecurity Analyst</p>
-          <p>Date: 2019 - Present</p>
-          <p>Responsibilities:</p>
-          <ul>
-            <li>Conducting penetration testing and vulnerability assessments for various clients</li>
-            <li>Assisting in the development and implementation of security policies and procedures</li>
-            <li>Performing security audits and risk assessments</li>
-          </ul>
-        </li>
-        <li>
-          <h2>Company B</h2>
-          <p>Position: Cybersecurity Consultant</p>
-          <p>Date: 2015 - 2019</p>
-          <p>Responsibilities:</p>
-          <ul>
-            <li>Providing cybersecurity consulting services to clients in different industries</li>
-            <li>Conducting threat modeling and security architecture reviews</li>
-            <li>Assisting in incident response and forensic investigations</li>
-          </ul>
-        </li>
-      </ul>
+        <h2>Projects</h2>
+        <div class="project-card">
+            <h3>Zero Trust Architecture Capstone</h3>
+            <p>Developed a comprehensive strategy for Zero Trust adoption in collaboration with ACT-IAC, aligning with the 2021 cybersecurity executive order.</p>
+        </div>
+        <div class="project-card">
+            <h3>Cybersecurity Clinic</h3>
+            <p>Created a risk assessment framework for third-party tools, collaborating with the City of Bloomington ITS to secure critical IT systems.</p>
+        </div>
+        <div class="project-card">
+            <h3>Domain Expressiveness Optimization</h3>
+            <p>Optimized DNS infrastructure to enhance performance and functionality during my undergraduate research.</p>
+        </div>
     </div>
-  </section>
-  
-  <section id="projects">
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="skills">
     <div class="container">
-      <h1>Projects</h1>
-      <ul>
-        <li>
-          <h2>Project A</h2>
-          <p>Description of Project A</p>
-        </li>
-        <li>
-          <h2>Project B</h2>
-          <p>Description of Project B</p>
-        </li>
-      </ul>
+        <h2>Skills</h2>
+        <ul>
+            <li>Web and API Penetration Testing (Burp Suite, OWASP Top-10)</li>
+            <li>Threat Modeling and Vulnerability Management</li>
+            <li>Cloud Security and Security Frameworks</li>
+            <li>Python Scripting and Automation</li>
+            <li>Security Research and Program Management</li>
+        </ul>
     </div>
-  </section>
-  
-  <section id="contact">
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications" class="certifications">
     <div class="container">
-      <h1>Contact Me</h1>
-      <p>Email: your-email@example.com</p>
-      <p>Phone: 123-456-7890</p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/your-linkedin-profile">Your LinkedIn Profile</a></p>
+        <h2>Certifications</h2>
+        <ul>
+            <li>CISSP (In Progress)</li>
+            <li>ISC2 CC</li>
+            <li>CompTIA Security+</li>
+            <li>CEH v10</li>
+            <li>Google Cybersecurity</li>
+            <li>IBM Cloud Essentials</li>
+        </ul>
     </div>
-  </section>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" name="name" placeholder="Your Name">
+            <input type="email" name="email" placeholder="Your Email">
+            <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+            <input type="submit" value="Send">
+        </form>
+        <p>Email: <a href="mailto:saetukur@iu.edu">saetukur@iu.edu</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/aetukurisrinath/">aetukurisrinath</a></p>
+    </div>
+</section>
+
 </body>
 </html>
