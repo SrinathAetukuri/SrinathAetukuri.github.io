@@ -33,21 +33,41 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(to bottom, #0d1117, #161b22);
+            background: url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Cybersecurity+Background') no-repeat center center/cover;
             color: #58a6ff;
+            text-shadow: 2px 2px 5px #000;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 4rem;
+            animation: fadeIn 2s ease-in;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             margin: 10px 0;
         }
 
-        .hero .cta {
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #238636;
+            color: #fff;
+            font-size: 1rem;
+            text-transform: uppercase;
+            text-align: center;
+            border-radius: 5px;
             margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #2ea043;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .timeline {
@@ -62,14 +82,18 @@
             top: 0;
             bottom: 0;
             left: 50%;
-            width: 2px;
+            width: 4px;
             background: #58a6ff;
         }
 
         .timeline-event {
             position: relative;
             margin: 20px 0;
-            width: calc(50% - 20px);
+            width: calc(50% - 30px);
+            padding: 20px;
+            border-radius: 8px;
+            background: #161b22;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         }
 
         .timeline-event:nth-child(odd) {
@@ -81,32 +105,51 @@
         }
 
         .timeline-event h3 {
-            margin: 5px 0;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
 
-        .timeline-event .content {
-            padding: 15px;
-            background: #21262d;
-            border-radius: 8px;
-            border: 1px solid #30363d;
+        .timeline-event p {
+            font-size: 1rem;
         }
 
-        .projects, .contact {
+        .projects {
             margin: 50px auto;
             max-width: 1200px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .project-card {
+            flex: 1 1 300px;
+            margin: 10px;
+            padding: 20px;
             background: #21262d;
             border-radius: 8px;
-            margin: 10px;
-            padding: 15px;
-            border: 1px solid #30363d;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+        }
+
+        .contact {
+            margin: 50px auto;
+            max-width: 600px;
         }
 
         .contact form {
-            margin: 20px auto;
-            max-width: 600px;
             display: flex;
             flex-direction: column;
         }
@@ -134,57 +177,53 @@
 <body>
     <header class="hero">
         <h1>Srinath Aetukuri</h1>
-        <p>Cybersecurity Professional | Open to Opportunities</p>
-        <div class="cta">
-            <a href="#timeline" class="cta-button">View My Journey</a>
-        </div>
+        <p>Cybersecurity Professional | Innovating Secure Systems</p>
+        <a href="#timeline" class="cta-button">Explore My Journey</a>
     </header>
 
     <section id="timeline" class="timeline">
+        <h2>My Career Timeline</h2>
         <div class="timeline-event">
-            <div class="content">
-                <h3>2024 - Graduated</h3>
-                <p>Master of Science in Cybersecurity Risk Management, Indiana University</p>
-            </div>
+            <h3>2024 - Master's Degree</h3>
+            <p>Graduated with a Master of Science in Cybersecurity Risk Management from Indiana University. Specialized in Threat Modeling, API Security, and Zero Trust Architecture.</p>
         </div>
         <div class="timeline-event">
-            <div class="content">
-                <h3>2022 - Security Consultant</h3>
-                <p>IBM, Bangalore. Conducted web application and API penetration testing, vulnerability management, and threat modeling.</p>
-            </div>
+            <h3>2022 - Security Consultant</h3>
+            <p>At IBM, conducted web and API penetration tests, implemented secure architecture, and provided Proof of Concepts (PoCs) for vulnerability remediation.</p>
         </div>
         <div class="timeline-event">
-            <div class="content">
-                <h3>2020 - Bachelor's Degree</h3>
-                <p>Bachelor of Technology in Computer Science and Engineering, NIIT University</p>
-            </div>
+            <h3>2020 - Bachelor's Degree</h3>
+            <p>Earned a Bachelor of Technology in Computer Science and Engineering from NIIT University. Focused on Cybersecurity and Networking.</p>
         </div>
     </section>
 
     <section id="projects" class="projects">
-        <h2>Projects</h2>
+        <h2>Highlighted Projects</h2>
         <div class="project-card">
-            <h3>Zero Trust Architecture Capstone</h3>
-            <p>Developed a comprehensive strategy for Zero Trust adoption in collaboration with ACT-IAC.</p>
+            <h3>Zero Trust Capstone</h3>
+            <p>Collaborated with ACT-IAC to develop a Zero Trust adoption strategy for organizations, aligning with the 2021 cybersecurity executive order.</p>
         </div>
         <div class="project-card">
             <h3>Cybersecurity Clinic</h3>
-            <p>Created a risk assessment framework for third-party tools with the City of Bloomington ITS.</p>
+            <p>Partnered with the City of Bloomington to create risk assessment frameworks and secure critical IT systems.</p>
         </div>
         <div class="project-card">
-            <h3>Domain Expressiveness Optimization</h3>
-            <p>Enhanced DNS performance through optimization and research.</p>
+            <h3>Content Security Policy Research</h3>
+            <p>Analyzed and enhanced CSP to mitigate web vulnerabilities like XSS, clickjacking, and transport layer attacks.</p>
         </div>
     </section>
 
     <section id="contact" class="contact">
-        <h2>Contact</h2>
+        <h2>Contact Me</h2>
         <form>
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
-            <textarea placeholder="Your Message"></textarea>
-            <input type="submit" value="Send Message">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send">
         </form>
+        <p>Email: <a href="mailto:srinath9698@gmail.com">srinath9698@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/aetukurisrinath">aetukurisrinath</a></p>
+        <p>GitHub: <a href="https://github.com/SrinathAetukuri">SrinathAetukuri</a></p>
     </section>
 </body>
 </html>
