@@ -1,152 +1,552 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Srinath Aetukuri - Cybersecurity Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Srinath Aetukuri | Application Security Engineer</title>
+  <meta
+    name="description"
+    content="Srinath Aetukuri is an Application Security Engineer focused on AppSec, penetration testing, bug bounty operations, threat modeling, and attack surface risk reduction."
+  />
   <style>
+    :root {
+      --bg: #0a0a0f;
+      --panel: #12121a;
+      --soft: #191926;
+      --text: #f4f4f5;
+      --muted: #b1b1c1;
+      --line: #26263a;
+      --accent: #8b5cf6;
+      --accent2: #22c55e;
+      --max: 1120px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: 'Roboto Mono', monospace;
-      background: #0e0e0e;
-      color: #e0e0e0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #08080d 0%, #0d0d15 100%);
+      color: var(--text);
       line-height: 1.6;
     }
-    a { color: #00e0ff; }
-    header {
-      background: linear-gradient(135deg, #1b1b1b, #222);
-      padding: 40px 20px;
-      text-align: center;
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      color: #76e0ff;
-    }
-    header p {
-      margin-top: 10px;
-      font-size: 1.2rem;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
+
+    .container {
+      width: min(92%, var(--max));
       margin: auto;
     }
-    h2 {
-      color: #76e0ff;
-      border-bottom: 2px solid #76e0ff;
-      padding-bottom: 5px;
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: rgba(10, 10, 15, 0.75);
+      border-bottom: 1px solid var(--line);
     }
+
+    .nav-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: 0.2px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .menu a:hover,
+    .social-links a:hover,
+    .project-links a:hover,
+    .contact-links a:hover {
+      color: white;
+    }
+
+    .hero {
+      padding: 88px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 12px;
+      background: rgba(139, 92, 246, 0.12);
+      color: #c4b5fd;
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      border-radius: 999px;
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.6rem);
+      line-height: 1.08;
+      margin: 0.2rem 0 1rem;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin: 0 0 1rem;
+    }
+
+    h3 {
+      margin: 0 0 0.6rem;
+      font-size: 1.2rem;
+    }
+
+    p { margin: 0 0 1rem; }
+
+    .lead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      border-color: transparent;
+    }
+
+    .btn-secondary {
+      background: var(--panel);
+    }
+
+    .hero-card,
+    .card {
+      background: linear-gradient(180deg, var(--panel), var(--soft));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #202030;
+    }
+
+    .pill-row,
+    .social-links,
+    .project-links,
+    .contact-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .pill,
+    .chip-link {
+      border: 1px solid var(--line);
+      background: #141420;
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+    }
+
+    section { padding: 38px 0; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .sub {
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .kicker {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #86efac;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    ul {
+      padding-left: 18px;
+      color: var(--muted);
+      margin: 0.8rem 0 1rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
     .contact {
       text-align: center;
+      padding: 32px;
     }
-    .contact p {
-      margin: 5px 0;
-    }
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
-    }
-    .experience, .education {
-      margin-bottom: 30px;
-    }
-    footer {
+
+    .footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      padding: 28px 0 50px;
+      margin-top: 28px;
       text-align: center;
-      padding: 20px;
-      background: #111;
+    }
+
+    .small-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Srinath Aetukuri</h1>
-    <p>Application Security | Threat Modeling | Security Researcher</p>
+  <header class="nav">
+    <div class="container nav-wrap">
+      <a href="#" class="logo">Srinath Aetukuri</a>
+      <nav class="menu">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="contact">
-    <p>Phone: <a href="tel:+18123604476">+1&nbsp;812&nbsp;360&nbsp;4476</a></p>
-    <p>Email: <a href="mailto:srinath9698@gmail.com">srinath9698@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/aetukurisrinath" target="_blank">aetukurisrinath</a></p>
-  </section>
+  <main class="container">
+    <section class="hero" id="about">
+      <div class="hero-grid">
+        <div>
+          <span class="badge">Application Security Engineer · Bug Bounty · Threat Modeling · Attack Surface Risk Reduction</span>
+          <h1>Srinath Aetukuri</h1>
+          <p class="lead">
+            I am an Application Security Engineer with 5+ years of experience across application security, penetration testing,
+            bug bounty operations, and attack surface risk reduction. I currently work at Goldman Sachs within Technology Risk,
+            where I focus on reproducing security findings, validating impact, guiding remediation, and building capabilities that
+            reduce internet-facing risk.
+          </p>
+          <p class="lead">
+            My work spans AppSec engineering, subdomain takeover detection, secure design reviews, web and API security testing,
+            threat modeling, and security research. I enjoy building practical security solutions that scale across teams,
+            products, and infrastructure.
+          </p>
 
-  <section>
-    <h2>Summary</h2>
-    <p>Cybersecurity professional with hands-on expertise in penetration testing, web application/API security, and threat modeling. Passionate about building secure digital ecosystems and delivering comprehensive security assessments.</p>
-  </section>
+          <div class="cta">
+            <a class="btn btn-primary" href="mailto:srinathaetukuri@gmail.com">Contact Me</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/aetukurisrinath/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn btn-secondary" href="#projects">View Projects</a>
+          </div>
 
-  <section>
-    <h2>Experience</h2>
-    <div class="experience">
-      <h3>Indiana University Bloomington - Web Application Security Researcher</h3>
-      <p><em>February 2025 - Present</em></p>
-      <ul>
-        <li>Researching advanced security techniques for modern web applications and APIs.</li>
-      </ul>
+          <div class="pill-row">
+            <span class="pill">Application Security</span>
+            <span class="pill">Penetration Testing</span>
+            <span class="pill">Bug Bounty Operations</span>
+            <span class="pill">Threat Modeling</span>
+            <span class="pill">Web & API Security</span>
+            <span class="pill">OWASP Top 10</span>
+            <span class="pill">Cloud Security</span>
+            <span class="pill">Python Automation</span>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <img src="https://via.placeholder.com/800x800.png?text=Add+Your+Photo" alt="Srinath Aetukuri profile placeholder" />
+          <h2 style="margin-top: 16px;">Application Security Engineer</h2>
+          <p class="meta">Dallas, Texas, United States</p>
+          <p>
+            Security professional with experience across Goldman Sachs, Gallup, IBM, OmniSOC, and Indiana University.
+            Strong focus on vulnerability research, AppSec engineering, cloud security, secure SDLC, and building internal
+            security tooling.
+          </p>
+          <div class="social-links">
+            <a class="chip-link" href="mailto:srinathaetukuri@gmail.com">Email</a>
+            <a class="chip-link" href="https://www.linkedin.com/in/aetukurisrinath/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="chip-link" href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+          <p class="small-note">Replace the GitHub link and profile image with your real details.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <div>
+          <h2>Featured Projects</h2>
+          <p class="sub">A few projects and research efforts that reflect my hands-on work in security engineering, offensive testing, and risk management.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <div class="kicker">Automation · Offensive Security · LLM Security Research</div>
+          <h3>Automating SQL Injection Exploitation using LLM Agent Frameworks</h3>
+          <p>
+            Built an AI-driven SQL injection exploitation tool using LangChain, OpenAI GPT-4, and Python libraries to reduce
+            manual effort in database enumeration and adaptive query formulation during penetration testing workflows.
+          </p>
+          <p class="meta">LangChain · GPT-4 · Python · SQL Injection · Security Automation</p>
+          <ul>
+            <li>Automated table extraction and enumeration workflows.</li>
+            <li>Reduced repetitive manual testing during exploitation stages.</li>
+            <li>Explored how LLM agents can support offensive security use cases.</li>
+          </ul>
+          <div class="project-links">
+            <a class="chip-link" href="https://github.com/YOUR_GITHUB_USERNAME/YOUR_SQLI_PROJECT" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Risk Assessment · Governance · Security Strategy</div>
+          <h3>Third-Party Tool Risk Assessment Framework</h3>
+          <p>
+            Developed a structured risk assessment framework for third-party tools during the IU Cybersecurity Clinic project for
+            the City of Bloomington ITS, aligning recommendations with NIST and ISO/IEC 27001 standards.
+          </p>
+          <p class="meta">NIST · ISO/IEC 27001 · Security Governance · Risk Analysis</p>
+          <ul>
+            <li>Created a decision matrix for objective tool selection.</li>
+            <li>Evaluated password managers and associated risk tradeoffs.</li>
+            <li>Focused on compliance, integration, and data protection needs.</li>
+          </ul>
+          <div class="project-links">
+            <a class="chip-link" href="#contact">Ask for details</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="kicker">Architecture · Zero Trust · Security Transformation</div>
+          <h3>Zero Trust Architecture Capstone</h3>
+          <p>
+            Researched the evolution of Zero Trust models and developed an implementation roadmap for organizations transitioning
+            toward stronger identity verification, segmentation, and asset-aware security controls.
+          </p>
+          <p class="meta">Zero Trust · Risk Management · Security Architecture</p>
+          <ul>
+            <li>Mapped practical steps for enterprise Zero Trust adoption.</li>
+            <li>Covered asset management, segmentation, and access verification.</li>
+            <li>Connected architectural choices to cybersecurity risk reduction.</li>
+          </ul>
+          <div class="project-links">
+            <a class="chip-link" href="#contact">Ask for details</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-head">
+        <div>
+          <h2>Experience</h2>
+          <p class="sub">My recent work has focused on building and scaling practical security capabilities across product security, AppSec operations, and penetration testing.</p>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="card">
+          <h3>Application Security Engineer · Goldman Sachs</h3>
+          <p class="meta">October 2025 – Present · Dallas, Texas</p>
+          <p>
+            Support the firm’s global Bug Bounty program within Technology Risk by triaging vulnerability reports, reproducing
+            findings, validating impact, and coordinating remediation with engineering teams. Built internal capabilities for
+            subdomain takeover detection and helped evaluate enterprise attack surface management platforms. Also contributed to
+            document sensitivity analysis efforts aimed at reducing accidental public data exposure.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Application Cybersecurity Engineer · Gallup</h3>
+          <p class="meta">July 2025 – September 2025 · Omaha, Nebraska</p>
+          <p>
+            Reviewed secure architecture and design for SaaS applications built on AWS, conducted penetration testing across web,
+            API, and mobile surfaces, and partnered with engineering teams to embed security earlier in the SDLC. Worked across
+            SAST, SCA, remediation validation, and developer guidance.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Information Security Analyst · OmniSOC</h3>
+          <p class="meta">June 2025 – July 2025 · Bloomington, Indiana</p>
+          <p>
+            Participated in an intensive SOC internship involving log analysis, SIEM monitoring, and event investigation using the
+            Elastic Stack. Worked with IDS/NIDS alerts, firewall logs, and network traffic while applying the MITRE ATT&CK
+            framework to support investigations and threat detection.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Research Assistant · Indiana University Bloomington</h3>
+          <p class="meta">February 2025 – June 2025 · United States</p>
+          <p>
+            Conducted architectural security research on the Helios electronic voting system, studying anonymization techniques,
+            cryptographic protocols, privacy guarantees, and trust assumptions. Produced a structured review of design-level risks
+            and security considerations for electronic voting systems.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Security Consultant (Penetration Tester) · IBM</h3>
+          <p class="meta">September 2020 – November 2022 · Bengaluru, India</p>
+          <p>
+            Performed web application and API penetration testing across cloud, on-prem, and hybrid environments. Built threat
+            models using STRIDE, delivered detailed PoCs for remediation, supported security hardening initiatives such as CSP,
+            and worked with DevSecOps teams to integrate security testing into CI/CD workflows.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-head">
+        <div>
+          <h2>Skills & Tools</h2>
+          <p class="sub">A mix of hands-on offensive security, AppSec engineering, architecture review, and practical remediation support.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Core Security Skills</h3>
+          <p>
+            Application Security, Penetration Testing, Vulnerability Assessments, Web Application Security, API Security,
+            OWASP Top 10, Threat Modeling, Security Architecture, Secure Authentication and Authorization, Zero Trust,
+            SAST/DAST, Security Research, Technical Documentation, Risk-Based Remediation.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Tools & Technologies</h3>
+          <p>
+            Burp Suite Pro, HCL AppScan, OWASP ZAP, Kali Linux, Wireshark, Nmap, Metasploit, Postman, Ghidra, IDA Free,
+            SQLMap, Netcat, Snort, tcpdump, Python, Bash, SQL, JavaScript, ProjectDiscovery tooling, Elastic Stack, AWS.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-head">
+        <div>
+          <h2>Education & Certifications</h2>
+          <p class="sub">Academic foundation in cybersecurity risk management, secure systems, and network security, backed by industry certifications.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Education</h3>
+          <p><strong>Indiana University Bloomington</strong><br />Master of Science in Cybersecurity Risk Management · GPA: 3.98/4.0 · January 2023 – December 2024</p>
+          <p><strong>NIIT University</strong><br />Bachelor of Technology in Computer Science and Engineering · July 2016 – June 2020</p>
+        </div>
+
+        <div class="card">
+          <h3>Certifications</h3>
+          <p>
+            ISC2 Certified in Cybersecurity (CC), CompTIA Security+, CEH v10, Google Cybersecurity,
+            Security and Privacy by Design Practitioner, ISC2 SSCP (in progress).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="card contact">
+        <h2>Let’s connect</h2>
+        <p>
+          I’m open to conversations around application security, product security, vulnerability research,
+          bug bounty operations, and security engineering opportunities.
+        </p>
+        <div class="contact-links" style="justify-content:center;">
+          <a class="chip-link" href="mailto:srinathaetukuri@gmail.com">srinathaetukuri@gmail.com</a>
+          <a class="chip-link" href="tel:+18123604476">+1 812-360-4476</a>
+          <a class="chip-link" href="https://www.linkedin.com/in/aetukurisrinath/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="chip-link" href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="y"></span> Srinath Aetukuri · Built for GitHub Pages
     </div>
-    <div class="experience">
-      <h3>IBM - Security Consultant (Penetration Tester)</h3>
-      <p><em>September 2020 - November 2022</em></p>
-      <ul>
-        <li>Conducted web application and API penetration testing across cloud and on‑prem environments.</li>
-        <li>Implemented threat models using STRIDE to reduce vulnerabilities by 30% during pre‑release stages.</li>
-        <li>Delivered detailed penetration testing reports with PoCs, leading to a 95% reduction in critical issues.</li>
-        <li>Integrated security testing in CI/CD pipelines and developed security hardening initiatives.</li>
-      </ul>
-    </div>
-    <div class="experience">
-      <h3>IBM - Data and Application Security Analyst Intern</h3>
-      <p><em>January 2020 - June 2020</em></p>
-      <ul>
-        <li>Performed vulnerability assessments and exploited web vulnerabilities such as SQLi and XSS.</li>
-        <li>Developed custom penetration testing tools using Python in restricted environments.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <h2>Education</h2>
-    <div class="education">
-      <h3>Master of Science in Cybersecurity Risk Management</h3>
-      <p>Indiana University Bloomington, 2023 - 2024</p>
-    </div>
-    <div class="education">
-      <h3>Bachelor of Technology in Computer Science and Engineering</h3>
-      <p>NIIT University, 2016 - 2020</p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Skills &amp; Certifications</h2>
-    <ul>
-      <li>Penetration Testing &bull; Web and API Security &bull; Threat Modeling</li>
-      <li>Tools: Burp Suite Pro, OWASP Zap, Kali Linux, Metasploit, Wireshark</li>
-      <li>Programming: Python, Bash, SQL, JavaScript</li>
-      <li>Certifications: ISC2 CC, CompTIA Security+, CEH v10, Google Cybersecurity</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Projects &amp; Research</h2>
-    <ul>
-      <li>Third-Party Tool Risk Assessment Framework – Developed structured risk assessment aligned with NIST and ISO/IEC 27001 standards.</li>
-      <li>Automating SQL Injection Exploitation using LLM Agent Frameworks – Built an AI-driven SQLi exploitation tool.</li>
-      <li>Zero Trust Architecture Capstone – Created implementation roadmap for organizations adopting Zero Trust.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Involvement</h2>
-    <ul>
-      <li>Red Team Volunteer – Cyberforce Competition 2024</li>
-      <li>OWASP Global AppSec Conference San Francisco</li>
-      <li>BSides Bloomington, Midwest Security Conference</li>
-    </ul>
-  </section>
-
-  <footer>
-    &copy; 2024 Srinath Aetukuri
   </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
